@@ -1,0 +1,39 @@
+
+
+<div class="container">
+
+  <h2>Inicia session o registrate</h2>
+<br>
+<h2><%= link_to "sing up", user_new_path %></h2>
+<br>
+<%= form_with  url: sessions_path,  local: true do %>
+
+
+  <div class="form-group">
+    <%= label_tag :email %><br />
+    <%= email_field_tag :email, params[:email] %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :password %>
+    <% if @minimum_password_length %>
+    (<%= @minimum_password_length %> characters minimum)
+    <% end %><br />
+    <%= password_field_tag :password, params[:password] %>
+  </div>
+
+
+
+  <div class="form-group">
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name, params[:name] %>
+  </div>
+
+  <div class="actions">
+      <button type="button" class="btn btn-dark">   <%= submit_tag "Sign in" %></button>
+  </div>
+
+
+
+  <% end %>
+    </div>

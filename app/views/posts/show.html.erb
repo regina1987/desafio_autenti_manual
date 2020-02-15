@@ -1,0 +1,24 @@
+<div class="row">
+     <!-- Post Content Column -->
+   <div class="col-lg-8">
+
+     <div class="card">
+      <%= image_tag @post.image, class: 'card-image-top img-fluid', style: 'height:250px' %>
+     <div class="card-body">
+          <h5 class="card-title">Title</h5>
+          <p class="card-text"> <%= @post.title %></p>
+          <h5 class="card-title">Autor</h5>
+          <p class="card-text"><%= @post.user.name %></p>
+          <h5 class="card-title">Created _At</h5>
+          <p class="card-text"><%= @post.created_at %></p>
+          <h5 class="card-title">Content</h5>
+          <p class="card-text"><%= @post.content %></p>
+          <%= render 'comments/form', comment: @comment %>
+            <h5 class="card-title">Comments</h5>
+                <% @post.comments.each do |comment| %>
+                  <p class="card-text"><%= render 'comments/show', comment: comment unless comment.new_record?%></p>
+                <% end %>
+        </div>
+    </div>
+   </div>
+ </div>

@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>My Posts</h1>
+<div class="container m-4 p-4">
+
+
+  <% @posts.each_slice(3) do |post2 | %>
+  <div class="card-deck">
+      <% post2.each do |post | %>
+       <div class="card">
+        <%= image_tag post.image, class: 'card-image-top img-fluid', style: 'height:250px' %>
+       <div class="card-body">
+         <h5 class="card-title">Title</h5>
+      <p class="card-text"><%= post.title %></p>
+      <h5 class="card-title">Content</h5>
+            <p class="card-text"><%= post.content %></p>
+
+            <td><%= link_to 'Show', post %></td>
+            <td><%= link_to 'Edit', edit_post_path(post) %></td>
+            <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </div>
+          </div>
+      <% end %>
+      </div>
+      <% end %>
+</div>
+
+<%= link_to 'New Post', new_post_path %>
